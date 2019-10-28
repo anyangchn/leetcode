@@ -12,7 +12,7 @@ func merge(intervals [][]int) [][]int {
 	for i := 1; i < len(intervals); i++ {
 		tmp := intervals[i]
 		if tmp[0] <= cur[1] {
-			cur = []int{cur[0], max(tmp[1], cur[1])}
+			cur = []int{cur[0], maxInt(tmp[1], cur[1])}
 		} else {
 			result = append(result, cur)
 			cur = tmp
@@ -20,13 +20,6 @@ func merge(intervals [][]int) [][]int {
 	}
 	result = append(result, cur)
 	return result
-}
-
-func max(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
 }
 
 type IntervalCollection [][]int
